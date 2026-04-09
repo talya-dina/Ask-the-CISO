@@ -87,7 +87,7 @@ const requestTypes = [
             "תאריך סגירת הטופס", 
             "שם הטופס / סקר", 
             "הנתונים שיאספו בטופס / סקר", 
-            "כתובת לטופס / סקר", 
+            "כתובות לטופס / סקר", 
             "מערכת עליה מתבסס הטופס / סקר"
         ] 
     },
@@ -144,6 +144,9 @@ function generateCyberTable(type) {
             <div style="background-color: #f8f9fa; padding: 20px; border: 1px solid #e0e0e0; border-bottom: 5px solid #0078d4; border-radius: 8px 8px 0 0; text-align: right;">
                 <h2 style="margin: 0; font-size: 18px; color: #0078d4;">טופס בקשה: ${type.label.replace(/[^\u0590-\u05FF\s]/g, '').trim()}</h2>
                 <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">אנא מלא את הפרטים בטבלה מטה והשב למייל זה.</p>
+                <p style="margin: 10px 0 0 0; font-size: 14px; color: #d93025; font-weight: bold; border-top: 1px dashed #d93025; padding-top: 10px;">
+                    חובה למלא את כלל הסעיפים בטבלה על מנת שיתקבל מענה לבקשה.
+                </p>
             </div>
             
             <table dir="rtl" style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">

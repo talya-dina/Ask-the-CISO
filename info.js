@@ -121,7 +121,8 @@ function openNewEmail(type) {
     }
 
     const uniqueId = Date.now();
-    const fullSubject = `OFIRSEC Security (ID: ${uniqueId}) - ${type.subject}`;
+    // עדכון נושא המייל עם תגית ייחודית לאוטומציה
+    const fullSubject = `OFIRSEC Security (ID: ${uniqueId}) - ${type.subject} [SEC-REQ]`;
     const tableHtml = generateCyberTable(type);
 
     Office.context.mailbox.displayNewMessageForm({

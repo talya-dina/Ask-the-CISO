@@ -110,7 +110,7 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="InfoSec"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="בקשות פורמטים"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="InfoSec"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="פתיחת תפריט פניות של אבטחת מידע"/>

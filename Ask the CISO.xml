@@ -11,8 +11,8 @@
   <DisplayName DefaultValue="Ask the CISO"/>
   <Description DefaultValue="תוסף זה מהווה את נקודת הכניסה המרכזית לפניות אל חברת אבטחת המידע OFIRSEC בנושאי שינויים, בקשות ותהליכי התאמה שונים."/>
   
-  <IconUrl DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.png"/>
+  <IconUrl DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.PNG"/>
+  <HighResolutionIconUrl DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.PNG"/>
   
   <Hosts>
     <Host Name="Mailbox"/>
@@ -101,9 +101,9 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.PNG"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.PNG"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.PNG"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Taskpane.Url" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/info.html"/>

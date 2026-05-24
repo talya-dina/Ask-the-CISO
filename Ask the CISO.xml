@@ -11,8 +11,8 @@
   <DisplayName DefaultValue="Ask the CISO"/>
   <Description DefaultValue="תוסף זה מהווה את נקודת הכניסה המרכזית לפניות אל חברת אבטחת המידע OFIRSEC בנושאי שינויים, בקשות ותהליכי התאמה שונים."/>
   
-  <IconUrl DefaultValue="https://talya-dina.github.io/Infosec/SECicon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://talya-dina.github.io/Infosec/SECicon.png"/>
+  <IconUrl DefaultValue="https://talya-dina.github.io/Ask the CISO/SECicon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://talya-dina.github.io/Ask the CISO/SECicon.png"/>
   
   <Hosts>
     <Host Name="Mailbox"/>
@@ -25,13 +25,13 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://talya-dina.github.io/Infosec/info.html"/>
+        <SourceLocation DefaultValue="https://talya-dina.github.io/Ask the CISO/info.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
     <Form xsi:type="ItemEdit">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://talya-dina.github.io/Infosec/info.html"/>
+        <SourceLocation DefaultValue="https://talya-dina.github.io/Ask the CISO/info.html"/>
       </DesktopSettings>
     </Form>
   </FormSettings>

@@ -31,7 +31,7 @@
     </Form>
     <Form xsi:type="ItemEdit">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://talya-dina.github.ioAsk-the-CISO/info.html"/>
+        <SourceLocation DefaultValue="https://talya-dina.github.io/Ask-the-CISO/info.html"/>
       </DesktopSettings>
     </Form>
   </FormSettings>

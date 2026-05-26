@@ -12,7 +12,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f4f7fa; /* שינוי קל לרקע אפרפר-רך כדי שהלבן התלת-ממדי יבלוט */
+            background-color: #f4f7fa;
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
             color: #323130;
         }
@@ -26,7 +26,6 @@
         .header {
             margin-bottom: 25px;
             text-align: right;
-            /* אפקט ריחוק עדין לחלק העליון */
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             padding: 20px;
@@ -53,13 +52,12 @@
         #button-list {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* מרווח קצת יותר גדול בשביל האפקט המרחבי */
+            gap: 15px;
         }
 
         .request-btn {
             background-color: #ffffff;
             color: #323130;
-            /* צל תלת-ממדי עדין: שילוב של צל רך ואינטנסיבי */
             border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: 12px;
             padding: 18px 20px;
@@ -69,6 +67,7 @@
             cursor: pointer;
             position: relative;
             transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* צל התחלתי */
             box-shadow: 
                 0 4px 6px rgba(50, 50, 93, 0.04), 
                 0 1px 3px rgba(0, 0, 0, 0.03),
@@ -77,19 +76,19 @@
             width: 100%;
         }
 
-        /* אפקט הריחוף התלת-ממדי המשודרג */
+        /* אפקט הריחוף המעודכן - עם זוהר פנימי */
         .request-btn:hover {
             background-color: #ffffff;
             border-color: rgba(0, 120, 212, 0.3);
             color: #0078d4;
-            /* הכפתור "עולה" למעלה והצל שלו גדל ומתרכך */
             transform: translateY(-4px);
+            /* הוספת inset shadow כחול עדין מאוד לזוהר פנימי */
             box-shadow: 
                 0 12px 20px rgba(0, 120, 212, 0.08), 
-                0 4px 8px rgba(0, 120, 212, 0.04);
+                0 4px 8px rgba(0, 120, 212, 0.04),
+                inset 0 0 10px rgba(0, 120, 212, 0.08); /* זוהר כחול פנימי רך */
         }
 
-        /* אפקט הלחיצה פנימה (Click) - ממש מרגיש אלסטי */
         .request-btn:active {
             transform: translateY(-1px);
             box-shadow: 
@@ -98,23 +97,7 @@
             background-color: #f9fbfd;
         }
 
-        /* הוספת פס שמאלי קטן וכחול שמופיע רק בריחוף בצורה אלגנטית */
-        .request-btn::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 20%;
-            height: 60%;
-            width: 4px;
-            background-color: #0078d4;
-            border-radius: 4px 0 0 4px;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .request-btn:hover::after {
-            opacity: 1;
-        }
+        /* הפס הצדדי הוסר */
 
         .footer {
             margin-top: 40px;
@@ -125,7 +108,7 @@
         .footer img {
             width: 150px;
             height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05)); /* צל תלת ממדי עדין גם ללוגו */
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
         }
     </style>
 </head>

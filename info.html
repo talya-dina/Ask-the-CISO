@@ -12,7 +12,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f4f7fa;
+            background-color: #f4f7fa; /* רקע רך שגורם לאפקט הזכוכית לבלוט */
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
             color: #323130;
         }
@@ -26,12 +26,14 @@
         .header {
             margin-bottom: 25px;
             text-align: right;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
+            /* כותרת באפקט זכוכית עמוק */
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.7);
         }
 
         .header h2 {
@@ -52,52 +54,56 @@
         #button-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
 
         .request-btn {
-            background-color: #ffffff;
+            /* אפקט זכוכית בסיסי - לבן חצי שקוף */
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             color: #323130;
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            
+            /* מסגרת "השתקפות" עדינה מאוד */
+            border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 12px;
             padding: 18px 20px;
             text-align: right;
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            position: relative;
             transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-            /* צל התחלתי */
+            
+            /* צל רך המדמה ריחוף התחלתי קל */
             box-shadow: 
-                0 4px 6px rgba(50, 50, 93, 0.04), 
-                0 1px 3px rgba(0, 0, 0, 0.03),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                0 4px 10px rgba(0, 0, 0, 0.02),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
             display: block;
             width: 100%;
+            box-sizing: border-box;
         }
 
-        /* אפקט הריחוף המעודכן - עם זוהר פנימי */
+        /* אפקט הריחוף המשודרג - הזכוכית נהיית צלולה ובוהקת יותר והכפתור עולה */
         .request-btn:hover {
-            background-color: #ffffff;
-            border-color: rgba(0, 120, 212, 0.3);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(0, 120, 212, 0.25); /* מסגרת כחלחלה עדינה בריחוף */
             color: #0078d4;
             transform: translateY(-4px);
-            /* הוספת inset shadow כחול עדין מאוד לזוהר פנימי */
+            
+            /* הצל מעמיק ויוצר תחושה של מרחק מהרקע */
             box-shadow: 
-                0 12px 20px rgba(0, 120, 212, 0.08), 
-                0 4px 8px rgba(0, 120, 212, 0.04),
-                inset 0 0 10px rgba(0, 120, 212, 0.08); /* זוהר כחול פנימי רך */
+                0 12px 20px rgba(0, 120, 212, 0.06), 
+                0 4px 8px rgba(0, 120, 212, 0.02);
         }
 
+        /* לחיצה אלסטית פנימה */
         .request-btn:active {
             transform: translateY(-1px);
+            background-color: rgba(245, 249, 253, 0.85);
             box-shadow: 
-                0 2px 4px rgba(0, 120, 212, 0.06), 
-                inset 0 2px 4px rgba(0, 0, 0, 0.03);
-            background-color: #f9fbfd;
+                0 2px 4px rgba(0, 120, 212, 0.04), 
+                inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
-
-        /* הפס הצדדי הוסר */
 
         .footer {
             margin-top: 40px;
@@ -108,7 +114,7 @@
         .footer img {
             width: 150px;
             height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.03));
         }
     </style>
 </head>

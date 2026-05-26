@@ -20,7 +20,7 @@ if (!window.officeInitialized && (window.location.host.includes('github.io') || 
 const requestTypes = [
     { 
         id: "internet", 
-        label: "🌐 יציאה מיוחדת לאינטרנט", 
+        label: "יציאה מיוחדת לאינטרנט", 
         subject: "בקשה ליציאה מיוחדת של רכיב לאינטרנט", 
         questions: [
             "שם הרכיב שנדרש לצאת לאינטרנט", 
@@ -33,7 +33,7 @@ const requestTypes = [
     },
     { 
         id: "privileges", 
-        label: "🔑 הרשאות פריבילגיות", 
+        label: "הרשאות פריבילגיות", 
         subject: "בקשה למתן הרשאות פריבילגיות ברשת", 
         questions: [
             "מטרת ההרשאה והגדרות התפקיד", 
@@ -45,7 +45,7 @@ const requestTypes = [
     },
     { 
         id: "generic", 
-        label: "👤 משתמש גנרי / סרביס", 
+        label: "משתמש גנרי / סרביס", 
         subject: "בקשה לפתיחת משתמש גנרי (לרבות סרביס)", 
         questions: [
             "שם המשתמש הגנרי", 
@@ -56,7 +56,7 @@ const requestTypes = [
     },
     { 
         id: "software", 
-        label: "📦 תוכנה / מערכת חדשה", 
+        label: "תוכנה / מערכת חדשה", 
         subject: "בקשה לתוכנה/תוסף /מערכת חדשה", 
         questions: [
             "שם התוכנה", 
@@ -71,7 +71,7 @@ const requestTypes = [
     },
     { 
         id: "gritta", 
-        label: "♻️ תיעוד גריטה", 
+        label: "תיעוד גריטה", 
         subject: "תיעוד גריטה", 
         questions: [
             "תאריך ביצוע הגריטה", 
@@ -83,7 +83,7 @@ const requestTypes = [
     },
     { 
         id: "survey", 
-        label: "📝 פרסום טופס או סקר", 
+        label: "פרסום טופס או סקר", 
         subject: "פרסום טופס או סקר", 
         questions: [
             "שם המחלקה", 
@@ -97,7 +97,7 @@ const requestTypes = [
     },
     { 
         id: "general", 
-        label: "🛡️ אישור כללי אחר", 
+        label: "אישור כללי אחר", 
         subject: "אישור כללי/אחר", 
         questions: [
             "פירוט פרטי האישור והצורך בו"

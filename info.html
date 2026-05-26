@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OFIRSEC Portal</title>
+    <title>Ask the CISO Portal</title>
     
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     
@@ -12,7 +12,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #f4f7fa; /* שינוי קל לרקע אפרפר-רך כדי שהלבן התלת-ממדי יבלוט */
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
             color: #323130;
         }
@@ -26,15 +26,21 @@
         .header {
             margin-bottom: 25px;
             text-align: right;
-            border-bottom: 1px solid #edebe9;
-            padding-bottom: 20px;
+            /* אפקט ריחוק עדין לחלק העליון */
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
         .header h2 {
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 700;
             margin: 0;
             color: #0078d4;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
@@ -47,31 +53,67 @@
         #button-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px; /* מרווח קצת יותר גדול בשביל האפקט המרחבי */
         }
 
         .request-btn {
-            background-color: #fcfcfc;
+            background-color: #ffffff;
             color: #323130;
-            border: 1px solid #e1dfdd;
-            border-radius: 8px;
-            padding: 16px 20px;
+            /* צל תלת-ממדי עדין: שילוב של צל רך ואינטנסיבי */
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 18px 20px;
             text-align: right;
-            font-size: 14.5px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            position: relative;
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 
+                0 4px 6px rgba(50, 50, 93, 0.04), 
+                0 1px 3px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
             display: block;
             width: 100%;
         }
 
+        /* אפקט הריחוף התלת-ממדי המשודרג */
         .request-btn:hover {
-            background-color: #eff6fc;
-            border-color: #0078d4;
+            background-color: #ffffff;
+            border-color: rgba(0, 120, 212, 0.3);
             color: #0078d4;
-            transform: translateX(-5px);
-            box-shadow: 0 4px 10px rgba(0,120,212,0.15);
+            /* הכפתור "עולה" למעלה והצל שלו גדל ומתרכך */
+            transform: translateY(-4px);
+            box-shadow: 
+                0 12px 20px rgba(0, 120, 212, 0.08), 
+                0 4px 8px rgba(0, 120, 212, 0.04);
+        }
+
+        /* אפקט הלחיצה פנימה (Click) - ממש מרגיש אלסטי */
+        .request-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 
+                0 2px 4px rgba(0, 120, 212, 0.06), 
+                inset 0 2px 4px rgba(0, 0, 0, 0.03);
+            background-color: #f9fbfd;
+        }
+
+        /* הוספת פס שמאלי קטן וכחול שמופיע רק בריחוף בצורה אלגנטית */
+        .request-btn::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 4px;
+            background-color: #0078d4;
+            border-radius: 4px 0 0 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        .request-btn:hover::after {
+            opacity: 1;
         }
 
         .footer {
@@ -83,6 +125,7 @@
         .footer img {
             width: 150px;
             height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05)); /* צל תלת ממדי עדין גם ללוגו */
         }
     </style>
 </head>
@@ -90,7 +133,7 @@
 
 <div id="container">
     <div class="header">
-        <h2> פניות אבטחת מידע – OFIRSEC</h2>
+        <h2>Ask the CISO – פניות אבטחת מידע</h2>
         <p class="subtitle">
             ברוכים הבאים לממשק הבקשות המהיר. כאן תוכלו להגיש פניות בנושאי שינויים, הרשאות ותהליכי אבטחה בצורה מסודרת ויעילה. 
             <br><br>

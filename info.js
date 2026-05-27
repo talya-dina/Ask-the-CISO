@@ -24,7 +24,7 @@ const requestTypes = [
         subject: "בקשה ליציאה מיוחדת של רכיב לאינטרנט", 
         questions: [
             "שם הרכיב שנדרש לצאת לאינטרנט", 
-            "כתובות הIP של הרכיב הנדרש לצאת (במידה וקיימת כתובת קבועה)", 
+            "כתובות הIP של הרכיב الנדרש לצאת (במידה וקיימת כתובת קבועה)", 
             "רשימת האתרים/ כתובות ה IP אליהם השירות נדרש לצאת", 
             "תיאור הצורך ביציאה לאינטרנט (במידה ונדרש לכלל האינטרנט יש לנמק)", 
             "פורט נדרש ליציאה לעולם", 
@@ -135,34 +135,37 @@ function openNewEmail(type) {
     });
 }
 
-// פונקציית עיצוב המייל - תאי מענה נקיים וריקים לגמרי להקלדה נוחה
+// פונקציית עיצוב המייל - תיקון צבעים ורינדור קשיח במיוחד לאפליקציית Outlook בנייד
 function generateCyberTable(type) {
-    // עדכון: תא המענה השמאלי (התשובה) נשאר ריק לגמרי
     const rows = type.questions.map(q => `
         <tr>
-            <td style="border: 1px solid #c9d8e6; padding: 14px 12px; background-color: #f8fbfd; color: #333333; font-weight: bold; width: 40%; text-align: right; font-size: 14px; vertical-align: middle;">${q}</td>
-            <td style="border: 1px solid #c9d8e6; padding: 14px 12px; background-color: #ffffff; text-align: right; color: #333333; font-size: 15px;"></td>
+            <td style="border: 1px solid #c9d8e6 !important; padding: 12px 10px; background-color: #f8fbfd !important; color: #333333 !important; font-weight: bold; width: 35%; min-width: 110px; text-align: right; font-size: 13.5px; vertical-align: middle; word-wrap: break-word;">${q}</td>
+            <td style="border: 1px solid #c9d8e6 !important; padding: 12px 10px; background-color: #ffffff !important; text-align: right; color: #111111 !important; font-size: 15px; width: 65%;"></td>
         </tr>
     `).join("");
 
     return `
-        <div dir="rtl" style="background-color: #f0f4f8; padding: 30px 20px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; max-width: 650px; margin: 0 auto; direction: rtl; text-align: right; border-radius: 20px;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="light">
+        <meta name="supported-color-schemes" content="light">
+
+        <div dir="rtl" style="background-color: #f0f4f8 !important; padding: 15px 10px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; max-width: 650px; width: 100%; margin: 0 auto; direction: rtl; text-align: right; border-radius: 20px; box-sizing: border-box;">
             
-            <div style="background-color: #ffffff; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 15px 35px rgba(10, 103, 181, 0.08), 0 3px 10px rgba(0, 0, 0, 0.02); overflow: hidden; padding: 30px 25px;">
+            <div style="background-color: #ffffff !important; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.9) !important; box-shadow: 0 15px 35px rgba(10, 103, 181, 0.08), 0 3px 10px rgba(0, 0, 0, 0.02); overflow: hidden; padding: 20px 15px; box-sizing: border-box;">
                 
-                <h2 style="margin: 0 0 8px 0; font-size: 20px; color: #0a67b5; font-weight: 700;">
+                <h2 style="margin: 0 0 6px 0; font-size: 19px; color: #0a67b5 !important; font-weight: 700; line-height: 1.3;">
                     טופס בקשה: ${type.label.replace(/[^\u0590-\u05FF\s]/g, '').trim()}
                 </h2>
-                <p style="margin: 0; font-size: 14px; color: #605e5c; line-height: 1.5;">
+                <p style="margin: 0; font-size: 13.5px; color: #605e5c !important; line-height: 1.4;">
                     אנא מלאו את הפרטים בשדות מטה והשיבו למייל זה.
                 </p>
                 
-                <p style="margin: 15px 0 25px 0; font-size: 13.5px; color: #d93025; font-weight: bold; border-top: 1px dashed rgba(217, 48, 37, 0.2); padding-top: 12px;">
-                    חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
+                <p style="margin: 12px 0 20px 0; font-size: 13px; color: #d93025 !important; font-weight: bold; border-top: 1px dashed rgba(217, 48, 37, 0.2); padding-top: 10px; line-height: 1.4;">
+                    ⚠️ חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
                 </p>
                 
-                <div style="border: 1px solid #c9d8e6; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
-                    <table dir="rtl" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                <div style="border: 1px solid #c9d8e6 !important; border-radius: 8px; overflow: hidden; width: 100%;">
+                    <table dir="rtl" style="width: 100%; border-collapse: collapse; table-layout: fixed; background-color: #ffffff !important;">
                         <tbody>
                             ${rows}
                         </tbody>
@@ -170,10 +173,10 @@ function generateCyberTable(type) {
                 </div>
             </div>
 
-            <div style="margin-top: 30px; text-align: center;">
-                <p style="margin: 0; font-size: 16px; font-weight: bold; color: #001529;">תודה רבה על שיתוף הפעולה!</p>
-                <p style="margin: 5px 0 15px 0; color: #0a67b5; font-size: 14px; font-weight: bold;">צוות אבטחת מידע OFIRSEC</p>
-                <img src="https://ofirsec.co.il/wp-content/uploads/2024/06/logo-big-cyber-1-1-768x336.png" alt="OFIRSEC Logo" style="width: 170px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 4px 8px rgba(10, 103, 181, 0.05)); opacity: 0.95;">
+            <div style="margin-top: 25px; text-align: center;">
+                <p style="margin: 0; font-size: 15px; font-weight: bold; color: #001529 !important;">תודה רבה על שיתוף הפעולה!</p>
+                <p style="margin: 4px 0 12px 0; color: #0a67b5 !important; font-size: 13.5px; font-weight: bold;">צוות אבטחת מידע OFIRSEC</p>
+                <img src="https://ofirsec.co.il/wp-content/uploads/2024/06/logo-big-cyber-1-1-768x336.png" alt="OFIRSEC Logo" style="width: 150px; height: auto; display: block; margin: 0 auto; opacity: 0.95;">
             </div>
         </div>
     `;

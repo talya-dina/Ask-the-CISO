@@ -135,15 +135,13 @@ function openNewEmail(type) {
     });
 }
 
-// פונקציית עיצוב המייל שמתאימה בול לכרטיס הלבן והתכלת האחרון
+// פונקציית עיצוב המייל - תאי מענה נקיים וריקים לגמרי להקלדה נוחה
 function generateCyberTable(type) {
-    // עיצוב מחדש של השורות - ללא קוביות אפורות, מראה נקי כמו רשימת פרטים
+    // עדכון: תא המענה השמאלי (התשובה) נשאר ריק לגמרי
     const rows = type.questions.map(q => `
-        <tr style="border-bottom: 1px solid #e1e6eb;">
-            <td style="padding: 16px 10px; color: #605e5c; font-weight: 500; width: 40%; text-align: right; font-size: 15px; vertical-align: top;">${q}:</td>
-            <td style="padding: 16px 10px; text-align: right; color: #0a67b5; font-weight: 600; font-size: 16px;">
-                [הקלידו כאן את המענה]
-            </td>
+        <tr>
+            <td style="border: 1px solid #c9d8e6; padding: 14px 12px; background-color: #f8fbfd; color: #333333; font-weight: bold; width: 40%; text-align: right; font-size: 14px; vertical-align: middle;">${q}</td>
+            <td style="border: 1px solid #c9d8e6; padding: 14px 12px; background-color: #ffffff; text-align: right; color: #333333; font-size: 15px;"></td>
         </tr>
     `).join("");
 
@@ -160,14 +158,16 @@ function generateCyberTable(type) {
                 </p>
                 
                 <p style="margin: 15px 0 25px 0; font-size: 13.5px; color: #d93025; font-weight: bold; border-top: 1px dashed rgba(217, 48, 37, 0.2); padding-top: 12px;">
-                    ⚠️ חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
+                    חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
                 </p>
                 
-                <table dir="rtl" style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
-                    <tbody>
-                        ${rows}
-                    </tbody>
-                </table>
+                <div style="border: 1px solid #c9d8e6; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                    <table dir="rtl" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div style="margin-top: 30px; text-align: center;">

@@ -16,7 +16,7 @@ if (!window.officeInitialized && (window.location.host.includes('github.io') || 
     }
 }
 
-// עדכון השאלות והנושאים לפי המסמך המצורף
+// רשימת השאלות והנושאים
 const requestTypes = [
     { 
         id: "internet", 
@@ -125,7 +125,6 @@ function openNewEmail(type) {
     }
 
     const uniqueId = Date.now();
-    // עדכון נושא המייל עם תגית ייחודית לאוטומציה
     const fullSubject = `OFIRSEC Security (ID: ${uniqueId}) - ${type.subject} [SEC-REQ]`;
     const tableHtml = generateCyberTable(type);
 
@@ -136,32 +135,45 @@ function openNewEmail(type) {
     });
 }
 
+// פונקציית עיצוב המייל שמתאימה בול לכרטיס הלבן והתכלת האחרון
 function generateCyberTable(type) {
+    // עיצוב מחדש של השורות - ללא קוביות אפורות, מראה נקי כמו רשימת פרטים
     const rows = type.questions.map(q => `
-        <tr>
-            <td style="border: 1px solid #e0e0e0; padding: 12px; background-color: #fcfcfc; color: #333333; font-weight: bold; width: 40%; text-align: right; font-size: 14px;">${q}:</td>
-            <td style="border: 1px solid #e0e0e0; padding: 12px; background-color: #ffffff; text-align: right;"></td>
+        <tr style="border-bottom: 1px solid #e1e6eb;">
+            <td style="padding: 16px 10px; color: #605e5c; font-weight: 500; width: 40%; text-align: right; font-size: 15px; vertical-align: top;">${q}:</td>
+            <td style="padding: 16px 10px; text-align: right; color: #0a67b5; font-weight: 600; font-size: 16px;">
+                [הקלידו כאן את המענה]
+            </td>
         </tr>
     `).join("");
 
     return `
-        <div dir="rtl" style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; max-width: 650px; color: #333; line-height: 1.6; margin: 0 auto; text-align: right;">
-            <div style="background-color: #f8f9fa; padding: 20px; border: 1px solid #e0e0e0; border-bottom: 5px solid #0078d4; border-radius: 8px 8px 0 0; text-align: right;">
-                <h2 style="margin: 0; font-size: 18px; color: #0078d4;">טופס בקשה: ${type.label.replace(/[^\u0590-\u05FF\s]/g, '').trim()}</h2>
-                <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">אנא מלא את הפרטים בטבלה מטה והשב למייל זה.</p>
-                <p style="margin: 10px 0 0 0; font-size: 14px; color: #d93025; font-weight: bold; border-top: 1px dashed #d93025; padding-top: 10px;">
-                    חובה למלא את כלל הסעיפים בטבלה על מנת שיתקבל מענה לבקשה.
-                </p>
-            </div>
+        <div dir="rtl" style="background-color: #f0f4f8; padding: 30px 20px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; max-width: 650px; margin: 0 auto; direction: rtl; text-align: right; border-radius: 20px;">
             
-            <table dir="rtl" style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
-                ${rows}
-            </table>
+            <div style="background-color: #ffffff; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 15px 35px rgba(10, 103, 181, 0.08), 0 3px 10px rgba(0, 0, 0, 0.02); overflow: hidden; padding: 30px 25px;">
+                
+                <h2 style="margin: 0 0 8px 0; font-size: 20px; color: #0a67b5; font-weight: 700;">
+                    טופס בקשה: ${type.label.replace(/[^\u0590-\u05FF\s]/g, '').trim()}
+                </h2>
+                <p style="margin: 0; font-size: 14px; color: #605e5c; line-height: 1.5;">
+                    אנא מלאו את הפרטים בשדות מטה והשיבו למייל זה.
+                </p>
+                
+                <p style="margin: 15px 0 25px 0; font-size: 13.5px; color: #d93025; font-weight: bold; border-top: 1px dashed rgba(217, 48, 37, 0.2); padding-top: 12px;">
+                    ⚠️ חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
+                </p>
+                
+                <table dir="rtl" style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+                    <tbody>
+                        ${rows}
+                    </tbody>
+                </table>
+            </div>
 
-            <div style="margin-top: 30px; text-align: center; border-top: 1px solid #eeeeee; padding-top: 20px;">
+            <div style="margin-top: 30px; text-align: center;">
                 <p style="margin: 0; font-size: 16px; font-weight: bold; color: #001529;">תודה רבה על שיתוף הפעולה!</p>
-                <p style="margin: 5px 0 15px 0; color: #0078d4; font-size: 14px;">צוות אבטחת מידע OFIRSEC</p>
-                <img src="https://ofirsec.co.il/wp-content/uploads/2024/06/logo-big-cyber-1-1-768x336.png" alt="OFIRSEC Logo" style="width: 250px; height: auto; display: block; margin: 0 auto;">
+                <p style="margin: 5px 0 15px 0; color: #0a67b5; font-size: 14px; font-weight: bold;">צוות אבטחת מידע OFIRSEC</p>
+                <img src="https://ofirsec.co.il/wp-content/uploads/2024/06/logo-big-cyber-1-1-768x336.png" alt="OFIRSEC Logo" style="width: 170px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 4px 8px rgba(10, 103, 181, 0.05)); opacity: 0.95;">
             </div>
         </div>
     `;

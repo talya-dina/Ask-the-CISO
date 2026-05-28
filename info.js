@@ -135,7 +135,7 @@ function openNewEmail(type) {
     });
 }
 
-// פונקציית עיצוב המייל - תיקון צבעים ורינדור קשיח במיוחד לאפליקציית Outlook בנייד
+// פונקציית עיצוב המייל - מתוקנת וממורכזת קשיח לחלוטין לאאוטלוק דסקטופ, מובייל ורשת
 function generateCyberTable(type) {
     const rows = type.questions.map(q => `
         <tr>
@@ -149,35 +149,54 @@ function generateCyberTable(type) {
         <meta name="color-scheme" content="light">
         <meta name="supported-color-schemes" content="light">
 
-        <div dir="rtl" style="background-color: #f0f4f8 !important; padding: 15px 10px; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; max-width: 650px; width: 100%; margin: 0 auto; direction: rtl; text-align: right; border-radius: 20px; box-sizing: border-box;">
-            
-            <div style="background-color: #ffffff !important; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.9) !important; box-shadow: 0 15px 35px rgba(10, 103, 181, 0.08), 0 3px 10px rgba(0, 0, 0, 0.02); overflow: hidden; padding: 20px 15px; box-sizing: border-box;">
-                
-                <h2 style="margin: 0 0 6px 0; font-size: 19px; color: #0a67b5 !important; font-weight: 700; line-height: 1.3;">
-                    טופס בקשה: ${type.label.replace(/[^\u0590-\u05FF\s]/g, '').trim()}
-                </h2>
-                <p style="margin: 0; font-size: 13.5px; color: #605e5c !important; line-height: 1.4;">
-                    אנא מלאו את הפרטים בשדות מטה והשיבו למייל זה.
-                </p>
-                
-                <p style="margin: 12px 0 20px 0; font-size: 13px; color: #d93025 !important; font-weight: bold; border-top: 1px dashed rgba(217, 48, 37, 0.2); padding-top: 10px; line-height: 1.4;">
-                    ⚠️ חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
-                </p>
-                
-                <div style="border: 1px solid #c9d8e6 !important; border-radius: 8px; overflow: hidden; width: 100%;">
-                    <table dir="rtl" style="width: 100%; border-collapse: collapse; table-layout: fixed; background-color: #ffffff !important;">
-                        <tbody>
-                            ${rows}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div style="font-family: Arial, 'Segoe UI', Tahoma, sans-serif; background-color:#f4f7f9; direction: rtl; text-align: right;">
+        <table cellpadding="0" cellspacing="0" border="0" style="width:100%; background-color:#f4f7f9; direction: rtl; text-align: right;">
+        <tbody><tr>
+        <td style="padding:40px 12px;">
 
-            <div style="margin-top: 25px; text-align: center;">
-                <p style="margin: 0; font-size: 15px; font-weight: bold; color: #001529 !important;">תודה רבה על שיתוף הפעולה!</p>
-                <p style="margin: 4px 0 12px 0; color: #0a67b5 !important; font-size: 13.5px; font-weight: bold;">צוות אבטחת מידע OFIRSEC</p>
-                <img src="https://ofirsec.co.il/wp-content/uploads/2024/06/logo-big-cyber-1-1-768x336.png" alt="OFIRSEC Logo" style="width: 150px; height: auto; display: block; margin: 0 auto; opacity: 0.95;">
-            </div>
+        <center>
+
+            <table cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; width: 600px; max-width: 600px; border: 1px solid #dce6f1; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(10, 103, 181, 0.06); margin: 0 auto; direction: rtl; text-align: right;">
+                <tbody><tr>
+                    <td style="padding: 25px 20px; direction: rtl; text-align: right;">
+                        
+                        <h2 style="margin: 0 0 6px 0; font-size: 19px; color: #0a67b5 !important; font-weight: 700; line-height: 1.3; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">
+                            טופס בקשה: ${type.label.replace(/[^\u0590-\u05FF\s]/g, '').trim()}
+                        </h2>
+                        <p style="margin: 0; font-size: 13.5px; color: #605e5c !important; line-height: 1.4; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">
+                            אנא מלאו את הפרטים בשדות מטה והשיבו למייל זה.
+                        </p>
+                        
+                        <p style="margin: 12px 0 20px 0; font-size: 13px; color: #d93025 !important; font-weight: bold; border-top: 1px dashed rgba(217, 48, 37, 0.2); padding-top: 10px; line-height: 1.4; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">
+                            ⚠️ חובה למלא את כלל הסעיפים על מנת שיתקבל מענה לבקשה.
+                        </p>
+                        
+                        <div style="border: 1px solid #c9d8e6 !important; border-radius: 8px; overflow: hidden; width: 100%;">
+                            <table dir="rtl" style="width: 100%; border-collapse: collapse; table-layout: fixed; background-color: #ffffff !important;">
+                                <tbody>
+                                    ${rows}
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <table cellpadding="0" cellspacing="0" border="0" style="width: 600px; max-width: 600px; margin-top: 25px; margin-left: auto; margin-right: auto; direction: rtl;">
+                <tbody><tr>
+                    <td style="text-align: center;">
+                        <p style="margin: 0; font-size: 15px; font-weight: bold; color: #001529 !important; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">תודה רבה על שיתוף הפעולה!</p>
+                        <p style="margin: 4px 0 12px 0; color: #0a67b5 !important; font-size: 13.5px; font-weight: bold; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">צוות אבטחת מידע OFIRSEC</p>
+                        <img src="https://ofirsec.co.il/wp-content/uploads/2024/06/logo-big-cyber-1-1-1024x448.png" alt="OFIRSEC Logo" style="width: 150px; height: auto; display: block; margin: 0 auto; border: 0;">
+                    </td>
+                </tr>
+            </tbody></table>
+
+        </center>
+
+        </td>
+        </tr>
+        </tbody></table>
         </div>
     `;
 }

@@ -1,6 +1,143 @@
-// פונקציית עיצוב המייל - עם פונטים מתוקנים ואפקט "וואו" חסין לאאוטלוק דסקטופ, מובייל ורשת
+function initializeApp() {
+    renderButtons();
+}
+
+Office.onReady((info) => {
+    if (info.host) {
+        initializeApp();
+    }
+});
+
+if (!window.officeInitialized && (window.location.host.includes('github.io') || window.location.host.includes('localhost'))) {
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        initializeApp();
+    } else {
+        document.addEventListener("DOMContentLoaded", initializeApp);
+    }
+}
+
+// רשימת השאלות והנושאים
+const requestTypes = [
+    { 
+        id: "internet", 
+        label: "יציאה מיוחדת לאינטרנט", 
+        subject: "בקשה ליציאה מיוחדת של רכיב לאינטרנט", 
+        questions: [
+            "שם הרכיב שנדרש לצאת לאינטרנט", 
+            "כתובות הIP של הרכיב הנדרש לצאת (במידה וקיימת כתובת קבועה)", 
+            "רשימת האתרים/ כתובות ה IP אליהם השירות נדרש לצאת", 
+            "תיאור הצורך ביציאה לאינטרנט (במידה ונדרש לכלל האינטרנט יש לנמק)", 
+            "פורט נדרש ליציאה לעולם", 
+            "הסבר על סיבת הפורט הספציפי"
+        ] 
+    },
+    { 
+        id: "privileges", 
+        label: "הרשאות פריבילגיות", 
+        subject: "בקשה למתן הרשאות פריבילגיות ברשת", 
+        questions: [
+            "מטרת ההרשאה והגדרות התפקיד", 
+            "לאיזה קבוצות חזקות המשתמש יצטרף", 
+            "מייל המשתמש", 
+            "תפקיד", 
+            "באיזה סביבה המשתמש ימצא (פנימית / עננית / אפליקטיבית)"
+        ] 
+    },
+    { 
+        id: "generic", 
+        label: "משתמש גנרי / סרביס", 
+        subject: "בקשה לפתיחת משתמש גנרי (לרבות סרביס)", 
+        questions: [
+            "שם המשתמש הגנרי", 
+            "תפקיד המשתמש / סיבה לפתיחתו", 
+            "הרשאות נדרשות", 
+            "עמדות או מערכות אליהם יהיה רשאי לגשת"
+        ] 
+    },
+    { 
+        id: "software", 
+        label: "תוכנה / מערכת חדשה", 
+        subject: "בקשה לתוכנה/תוסף /מערכת חדשה", 
+        questions: [
+            "שם התוכנה", 
+            "שם החברה", 
+            "קישור לאתר הרלוונטי", 
+            "סוג התוכנה (מקומית / עננית / לא ידוע)",
+            "האם נדרש רשיון/חינמי",
+            "מטרת התוכנה",
+            "אילו משתמשים צפויים להשתמש בתוכנה",
+            "תיאור הצורך בתוכנה",
+        ] 
+    },
+    { 
+        id: "gritta", 
+        label: "תיעוד גריטה", 
+        subject: "תיעוד גריטה", 
+        questions: [
+            "תאריך ביצוע הגריטה", 
+            "שם מבצע הגריטה", 
+            "מקום ביצוע הגריטה", 
+            "הרכיב שנגרט", 
+            "המידע שהיה על הרכיב"
+        ] 
+    },
+    { 
+        id: "survey", 
+        label: "פרסום טופס או סקר", 
+        subject: "פרסום טופס או סקר", 
+        questions: [
+            "שם המחלקה", 
+            "תאריך פתיחת הטופס", 
+            "תאריך סגירת הטופס", 
+            "שם הטופס / סקר", 
+            "הנתונים שיאספו בטופס / סקר", 
+            "כתובות לטופס / סקר", 
+            "מערכת עליה מתבסס הטופס / סקר"
+        ] 
+    },
+    { 
+        id: "general", 
+        label: "אישור כללי אחר", 
+        subject: "אישור כללי/אחר", 
+        questions: [
+            "פירוט פרטי האישור והצורך בו"
+        ] 
+    }
+];
+
+function renderButtons() {
+    const list = document.getElementById("button-list");
+    if (!list) return;
+    list.innerHTML = "";
+    requestTypes.forEach(type => {
+        const btn = document.createElement("button");
+        btn.className = "request-btn";
+        btn.innerHTML = `<span>${type.label}</span>`;
+        btn.onclick = () => openNewEmail(type);
+        list.appendChild(btn);
+    });
+}
+
+function openNewEmail(type) {
+    if (typeof Office === 'undefined' || !Office.context || !Office.context.mailbox) {
+        alert("הפעולה זמינה רק מתוך Outlook.");
+        return;
+    }
+
+    const uniqueId = Date.now();
+    const fullSubject = `OFIRSEC Security (ID: ${uniqueId}) - ${type.subject} [SEC-REQ]`;
+    const tableHtml = generateCyberTable(type);
+
+    Office.context.mailbox.displayNewMessageForm({
+        toRecipients: ["info@ofirsec.co.il"],
+        subject: fullSubject,
+        htmlBody: tableHtml
+    });
+}
+
+// פונקציית עיצוב המייל המלאה והמעודכנת - פונטים יציבים ואפקט "וואו" מובטח בכל הגרסאות
 function generateCyberTable(type) {
-    // הזרקת הפונט ישירות לתוך תאי הטבלה למניעת שבירה באאוטלוק דסקטופ
+    // הזרקת פונט 'Segoe UI' וצבעי סייבר ישירות לכל תא ותא למניעת שבירה באאוטלוק דסקטופ
     const rows = type.questions.map(q => `
         <tr>
             <td style="border: 1px solid #dbe6f2 !important; padding: 14px 12px; background-color: #f4f8fc !important; color: #1f385c !important; font-weight: bold; width: 38%; min-width: 120px; text-align: right; font-size: 13.5px; vertical-align: middle; word-wrap: break-word; font-family: 'Segoe UI', Tahoma, Arial, sans-serif;">${q}</td>

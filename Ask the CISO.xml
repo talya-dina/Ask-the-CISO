@@ -8,7 +8,7 @@
   <Version>1.0.0.1</Version>
   <ProviderName>OFIRSEC</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Ask the CISO"/>
+  <DisplayName DefaultValue="Ask the CISO-TEST"/>
   <Description DefaultValue="תוסף זה מהווה את נקודת הכניסה המרכזית לפניות אל חברת אבטחת המידע OFIRSEC בנושאי שינויים, בקשות ותהליכי התאמה שונים."/>
   
   <IconUrl DefaultValue="https://talya-dina.github.io/Ask-the-CISO/SECicon.PNG"/>
@@ -109,8 +109,8 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://talya-dina.github.io/Ask-the-CISO/info.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Ask the CISO"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Ask the CISO"/>
+        <bt:String id="GroupLabel" DefaultValue="Ask the CISO-TEST"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Ask the CISO-TEST"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="פתיחת תפריט פניות של אבטחת מידע"/>

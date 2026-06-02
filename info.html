@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ask the CISO Portal</title>
+    <title>TEST - Ask the CISO Portal</title>
     
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     
@@ -15,6 +15,10 @@
             background-color: #f4f7fa; /* רקע רך שגורם לאפקט הזכוכית לבלוט */
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
             color: #323130;
+            /* מסגרת אדומה עדינה מסביב לכל התוסף לסמן שזה טסט */
+            border: 3px solid #d83b01;
+            box-sizing: border-box;
+            min-height: 100vh;
         }
 
         #container {
@@ -26,21 +30,21 @@
         .header {
             margin-bottom: 25px;
             text-align: right;
-            /* כותרת באפקט זכוכית עמוק */
-            background: rgba(255, 255, 255, 0.45);
+            /* כותרת באפקט זכוכית עמוק עם נגיעה אדמדמה ברקע */
+            background: rgba(255, 235, 235, 0.45);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(216, 59, 1, 0.3); /* מסגרת אדומה עדינה */
         }
 
         .header h2 {
             font-size: 21px;
             font-weight: 700;
             margin: 0;
-            color: #0078d4;
+            color: #d83b01; /* שונה לאדום לצורך זיהוי טסט */
             letter-spacing: -0.5px;
         }
 
@@ -83,25 +87,25 @@
             box-sizing: border-box;
         }
 
-        /* אפקט הריחוף המשודרג - הזכוכית נהיית צלולה ובוהקת יותר והכפתור עולה */
+        /* אפקט הריחוף המשודרג - בריחוף בטסט נשמור על קו אדום */
         .request-btn:hover {
             background-color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(0, 120, 212, 0.25); /* מסגרת כחלחלה עדינה בריחוף */
-            color: #0078d4;
+            border-color: rgba(216, 59, 1, 0.4); /* מסגרת אדמדמה בריחוף */
+            color: #d83b01; /* טקסט משתנה לאדום בריחוף בטסט */
             transform: translateY(-4px);
             
             /* הצל מעמיק ויוצר תחושה של מרחק מהרקע */
             box-shadow: 
-                0 12px 20px rgba(0, 120, 212, 0.06), 
-                0 4px 8px rgba(0, 120, 212, 0.02);
+                0 12px 20px rgba(216, 59, 1, 0.06), 
+                0 4px 8px rgba(216, 59, 1, 0.02);
         }
 
         /* לחיצה אלסטית פנימה */
         .request-btn:active {
             transform: translateY(-1px);
-            background-color: rgba(245, 249, 253, 0.85);
+            background-color: rgba(253, 245, 245, 0.85);
             box-shadow: 
-                0 2px 4px rgba(0, 120, 212, 0.04), 
+                0 2px 4px rgba(216, 59, 1, 0.04), 
                 inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
@@ -122,7 +126,7 @@
 
 <div id="container">
     <div class="header">
-        <h2>Ask the CISO – פניות אבטחת מידע</h2>
+        <h2>Ask the CISO – פניות אבטחת מידע [TEST]</h2>
         <p class="subtitle">
             ברוכים הבאים לממשק הבקשות המהיר. כאן תוכלו להגיש פניות בנושאי שינויים, הרשאות ותהליכי אבטחה בצורה מסודרת ויעילה. 
             <br><br>

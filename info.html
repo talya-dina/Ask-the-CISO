@@ -15,10 +15,6 @@
             background-color: #f4f7fa; /* רקע רך שגורם לאפקט הזכוכית לבלוט */
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
             color: #323130;
-            /* מסגרת אדומה עדינה מסביב לכל התוסף לסמן שזה טסט */
-            border: 3px solid #d83b01;
-            box-sizing: border-box;
-            min-height: 100vh;
         }
 
         #container {
@@ -30,21 +26,21 @@
         .header {
             margin-bottom: 25px;
             text-align: right;
-            /* כותרת באפקט זכוכית עמוק עם נגיעה אדמדמה ברקע */
+            /* כותרת באפקט זכוכית עמוק עם נגיעה אדמדמה ברקע לסימון טסט */
             background: rgba(255, 235, 235, 0.45);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(216, 59, 1, 0.3); /* מסגרת אדומה עדינה */
+            border: 1px solid rgba(216, 59, 1, 0.3); /* מסגרת אדומה עדינה לריבוע העליון */
         }
 
         .header h2 {
             font-size: 21px;
             font-weight: 700;
             margin: 0;
-            color: #d83b01; /* שונה לאדום לצורך זיהוי טסט */
+            color: #d83b01; /* צבע אדום לריבוע העליון בלבד */
             letter-spacing: -0.5px;
         }
 
@@ -87,25 +83,25 @@
             box-sizing: border-box;
         }
 
-        /* אפקט הריחוף המשודרג - בריחוף בטסט נשמור על קו אדום */
+        /* אפקט הריחוף המקורי והחלק - כחול נקי */
         .request-btn:hover {
             background-color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(216, 59, 1, 0.4); /* מסגרת אדמדמה בריחוף */
-            color: #d83b01; /* טקסט משתנה לאדום בריחוף בטסט */
+            border-color: rgba(0, 120, 212, 0.25); /* מסגרת כחלחלה עדינה בריחוף */
+            color: #0078d4; /* טקסט כחול בריחוף */
             transform: translateY(-4px);
             
             /* הצל מעמיק ויוצר תחושה של מרחק מהרקע */
             box-shadow: 
-                0 12px 20px rgba(216, 59, 1, 0.06), 
-                0 4px 8px rgba(216, 59, 1, 0.02);
+                0 12px 20px rgba(0, 120, 212, 0.06), 
+                0 4px 8px rgba(0, 120, 212, 0.02);
         }
 
         /* לחיצה אלסטית פנימה */
         .request-btn:active {
             transform: translateY(-1px);
-            background-color: rgba(253, 245, 245, 0.85);
+            background-color: rgba(245, 249, 253, 0.85);
             box-shadow: 
-                0 2px 4px rgba(216, 59, 1, 0.04), 
+                0 2px 4px rgba(0, 120, 212, 0.04), 
                 inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 

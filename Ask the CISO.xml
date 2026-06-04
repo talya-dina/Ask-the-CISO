@@ -5,7 +5,7 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
            xsi:type="MailApp">
   <Id>b7a3215c-9d1e-4321-a543-221144556677</Id>
-  <Version>1.0.0.1</Version>
+  <Version>1.0.1.0</Version>
   <ProviderName>OFIRSEC</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Ask the CISO-TEST"/>
